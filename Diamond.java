@@ -8,44 +8,41 @@ public class Diamond {
         int n = scanner.nextInt();
         for(int i =0; i<n; i++)
         {
-            int start=i+1;
-            int num = Math.abs(n/2 -i);
+            int start= i+1;
             int j =0;
-            int count = n -(2*num);
-
+            int num =  Math.abs(n/2 -i);
+            int count;
             if(n%2==0)
             {
-
-                if(i>n/2-1)
-                {
-                    num+=1;
-                    count-=1;
-                }
-                else {
-                    count += 1;
-                }
-
+                if(i<n/2)
+                    { num--;}
             }
-
-
             while(j<num)
             {
                 System.out.print(" ");
                 j++;
             }
-
-            for(int k =num-1; k<n/2; k++)
+            j=0;
+            count= n-(2*num);
+            if(n%2==0)
             {
-                System.out.print(start++);
-                count--;
+              count--;
+            }
+            j=0;
+
+            while(j<count)
+            {
+                if(j<count/2)
+                {
+                    System.out.print(start++);
+                }
+                else
+                {
+                    System.out.print(start--);
+                }
+                j++;
             }
 
-            start= start-1;
-            while(count>0)
-            {
-                System.out.print(--start);
-                count--;
-            }
             System.out.println("");
         }
     }
