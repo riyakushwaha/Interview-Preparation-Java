@@ -13,44 +13,21 @@ public class AnyBaseAddition {
 
     public static int getSum(int b, int n1, int n2){
         // write ur code here
-        int carry, a, res, sum;
-        carry = a = res = sum=0;
+        int carry, res, sum;
+        carry = res = sum=0;
+        int p =1;
 
-        while(n1!=0 || n2!=0)
+        while(n1!=0 || n2!=0 || carry>0)
         {
             sum = n1%10 + n2%10 + carry;
-            System.out.println("n1: "+n1);
-            System.out.println("n2: "+n2);
-            System.out.println("sum: "+sum);
-            if(sum>=b)
-            {
-                carry = 1;
-                if(sum==b)
-                {
-                    sum=0;
-                }
-                else
-                {
-                    sum= sum-b;
-                }
-            }
-            else
-            {
-                carry =0;
-            }
-            res += sum* Math.pow(10,a++);
+            carry = sum/b;
+            sum=sum%b;
+            res += sum* p;
+            p = p*10;
             n1= n1/10;
             n2= n2/10;
-
-            System.out.println("n1 now: "+n1);
-            System.out.println("n2 now: "+n2);
-            System.out.println("sum now: "+sum);
         }
 
-        res += carry* Math.pow(10,a++);
-
-        System.out.println("res: "+res);
         return res;
-
     }
 }

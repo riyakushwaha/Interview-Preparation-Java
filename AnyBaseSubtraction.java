@@ -15,37 +15,30 @@ public class AnyBaseSubtraction {
 
     public static int getDifference(int b, int n1, int n2){
         // write your code here
-        int carry, a, res, sub;
-        carry = a = res = sub=0;
+        int carry, res, sub;
+        carry = res = sub=0;
+        int p =1;
 
-        while(n2/10!=0 || n1!=0)
+        while(n2!=0 || n1!=0 || carry>0)
         {
-            System.out.println("n1 now: "+n1%10);
-            System.out.println("n2 now: "+n2%10);
-            if(n2%10+carry<n1%10)
+            int num = n2%10 +carry;
+            if(num<n1%10)
             {
 
-                sub = n2%10+ b - n1%10+carry;
+                sub = num+ b - n1%10;
                 carry =-1;
             }
             else
             {
-                sub = n2%10 - n1%10+carry;
+                sub = num - n1%10;
                 carry =0;
             }
 
-            System.out.println("sub: "+sub);
-            res += sub* Math.pow(10,a++);
+            res += sub* p;
+            p= p*10;
             n1= n1/10;
             n2= n2/10;
-            System.out.println("res: "+res);
         }
-
-        if(n2%10 +carry>0)
-        {
-            res += (n2%10 +carry)* Math.pow(10,a++);
-        }
-
 
         return res;
     }
