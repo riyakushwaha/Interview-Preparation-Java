@@ -1,5 +1,14 @@
 import java.util.Scanner;
 
+/*
+    Name: Inverse Of An Array
+    Source: PepCoding
+    Link: https://www.pepcoding.com/resources/online-java-foundation/function-and-arrays/inverse-of-an-array-official/ojquestion
+
+    Statement: The inverse of a number is defined as the number created by interchanging the face value and index of digits of
+    number.e.g. for 426135, the inverse is 416253
+*/
+
 public class ArrayInverse {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -14,8 +23,6 @@ public class ArrayInverse {
             num+= i * (int) Math.pow(10, a[i]);
 
         }
-
-       // System.out.println(num);
 
         for(int i =0; i<n; i++)
         {

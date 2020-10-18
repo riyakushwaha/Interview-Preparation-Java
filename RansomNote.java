@@ -5,7 +5,11 @@ import java.text.*;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
-
+/*
+    Name: Ransom Notes
+    Source: HackerRank
+    Link: https://www.hackerrank.com/challenges/ctci-ransom-note/problem
+*/
 public class RansomNote {
 
     // Complete the checkMagazine function below.

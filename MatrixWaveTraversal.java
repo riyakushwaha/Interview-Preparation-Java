@@ -1,5 +1,11 @@
 import java.util.Scanner;
-
+/*
+    Name: Wave Traversal
+    Source: PepCoding
+    Link: https://www.pepcoding.com/resources/online-java-foundation/2d-arrays/wave-traversal-official/ojquestion
+    Statement: You are required to traverse and print the contents of the 2d array in form of a wave - down the first
+    column then up the second column and so on.
+*/
 public class MatrixWaveTraversal {
     public static void main(String [] args)
     {

@@ -6,6 +6,15 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
+/*
+    Name: Bitwise AND
+    Source: HackerRank
+    Link: https://www.hackerrank.com/challenges/30-bitwise-and/problem
+
+    Statement:  Given set S={1,2,.N}. Find two integers,A and B (where A<B), from set S such that the value of A&B
+    in the maximum possible and also less than a given integer,K.In this case, & represents the bitwise AND operator.
+*/
+
 public class BitwiseAND {
 
     private static final Scanner scanner = new Scanner(System.in);

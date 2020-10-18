@@ -1,7 +1,7 @@
-// Find height
-
 import java.util.*;
-import java.io.*;
+
+//    Name: Get Height and Level Order Traversal of Binary Search Tree
+
 class Node{
     Node left,right;
     int data;
@@ -27,9 +27,32 @@ class BinarySearchTree{
             if(temp.right!= null) {
                 h2 =1+ getHeight(temp.right);
             }
-        int height = Math.max(h1, h2);
+            int height = Math.max(h1, h2);
             return height;
         }
+    }
+
+    static void levelOrder(Node root){
+        //Write your code here
+        Node temp = root;
+        Queue<Node > queue = new LinkedList<Node>();
+        if(temp!=null){
+            queue.add(temp);
+            while(!queue.isEmpty()){
+                Node curr = queue.peek();
+                if(curr.left!=null){
+                    queue.add(curr.left);
+                }
+                if(curr.right!=null){
+                    queue.add(curr.right);
+                }
+
+                System.out.print(curr.data+" ");
+                queue.remove();
+            }
+        }
+
+
     }
 
     public static Node insert(Node root,int data){
@@ -41,6 +64,7 @@ class BinarySearchTree{
             if(data<=root.data){
                 cur=insert(root.left,data);
                 root.left=cur;
+
             }
             else{
                 cur=insert(root.right,data);
@@ -58,6 +82,8 @@ class BinarySearchTree{
             root=insert(root,data);
         }
         int height=getHeight(root);
-        System.out.println("Ans: "+height);
+        System.out.println("Height of tree is: "+height);
+        System.out.print("Level Order Traversal is: ");
+        levelOrder(root);
     }
 }

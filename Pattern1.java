@@ -1,6 +1,10 @@
 import java.io.*;
 import java.util.*;
-
+/*
+    Name: Pattern
+    Source: PepCoding
+    Link: https://www.pepcoding.com/resources/online-java-foundation/patterns/design-pattern-18-official/ojquestion
+*/
 public class Pattern1 {
 
     public static  void main(String []args)

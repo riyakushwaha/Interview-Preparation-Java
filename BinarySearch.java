@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+// Name: Binary Search in Arrays.
+
 public class BinarySearch {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -14,8 +16,6 @@ public class BinarySearch {
         }
 
         data = scanner.nextInt();
-
-        System.out.println("entered in array");
 
         int l=0;
         int h =n-1;

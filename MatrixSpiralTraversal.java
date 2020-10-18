@@ -1,5 +1,10 @@
 import java.util.Scanner;
-
+/*
+    Name: Spiral Display
+    Source: PepCoding
+    Link: https://www.pepcoding.com/resources/online-java-foundation/2d-arrays/spiral-display-official/ojquestion
+    Statement: You are required to traverse and print the contents of the 2d array in form of a spiral.
+*/
 public class MatrixSpiralTraversal {
 
     public static void main(String [] args)

@@ -1,5 +1,11 @@
 import java.util.*;
-
+/*
+    Name: Two Sum
+    Source: LeetCode
+    Link: https://leetcode.com/problems/two-sum/
+    Statement: Given an array of integers nums and an integer target, return indices of the two numbers such
+    that they add up to target.
+*/
 public class TwoSum{
 
     // Complete the countSwaps function below.

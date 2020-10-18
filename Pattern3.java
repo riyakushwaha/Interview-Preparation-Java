@@ -1,6 +1,10 @@
 import java.io.*;
 import java.util.*;
-
+/*
+    Name: Pattern (Square - diamond)
+    Source: PepCoding
+    Link: https://www.pepcoding.com/resources/online-java-foundation/patterns/design-pattern-11-official/ojquestion
+*/
 public class Pattern3 {
 
     public static  void main(String []args)

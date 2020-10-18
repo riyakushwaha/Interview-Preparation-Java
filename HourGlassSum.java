@@ -5,7 +5,11 @@ import java.text.*;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
-
+/*
+    Name: Frequency Queries
+    Source: HackerRank
+    Link: https://www.hackerrank.com/challenges/2d-array/problem
+*/
 public class HourGlassSum {
 
     // Complete the hourglassSum function below.

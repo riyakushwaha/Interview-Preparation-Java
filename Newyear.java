@@ -5,7 +5,11 @@ import java.text.*;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
-
+/*
+    Name: New Year Chaos
+    Source: HackerRank
+    Link: https://www.hackerrank.com/challenges/new-year-chaos/problem
+*/
 public class Newyear {
 
     // Complete the minimumBribes function below.

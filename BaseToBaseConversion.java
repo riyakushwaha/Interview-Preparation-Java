@@ -1,5 +1,13 @@
 import java.util.Scanner;
 
+/*
+    Name: Any Base To Any Base
+    Source: PepCoding
+    Link: https://www.pepcoding.com/resources/online-java-foundation/function-and-arrays/any-base-to-any-base-official/ojquestion
+
+    Statement:  You are required to convert the number n of base b1 to a number in base b2.
+*/
+
 public class BaseToBaseConversion {
 
     public static void main(String[] args) {

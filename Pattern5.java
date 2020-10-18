@@ -1,6 +1,10 @@
 //1 <= n <= 10
 //Also, n is odd.
-
+/*
+    Name: Arrow Pattern
+    Source: PepCoding
+    Link: https://www.pepcoding.com/resources/online-java-foundation/patterns/design-pattern-17-official/ojquestion
+*/
 import java.util.Scanner;
 
 public class Pattern5 {

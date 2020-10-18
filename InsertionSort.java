@@ -7,9 +7,7 @@ public class InsertionSort {
         int l1= i;
         for( i =1; i<l1; i++)
         {
-            // System.out.println("i: "+i);
             int temp = arr[i];
-            // System.out.println("temp: "+temp);
             int j =i-1;
             while(j>=0 && arr[j]>temp)
             {
@@ -25,9 +23,6 @@ public class InsertionSort {
             System.out.println("");
         }
 
-//        for( i =0; i<l1; i++){
-//            System.out.print(arr[i]+" ");
-//        }
 
     }
 

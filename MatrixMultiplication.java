@@ -1,5 +1,9 @@
 import java.util.Scanner;
-
+/*
+    Name: Matrix Multiplication
+    Source: PepCoding
+    Link: https://www.pepcoding.com/resources/online-java-foundation/2d-arrays/matrix-multiplication-official/ojquestion
+*/
 public class MatrixMultiplication {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

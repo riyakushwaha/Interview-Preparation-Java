@@ -1,5 +1,10 @@
 import java.util.Scanner;
-
+/*
+    Name: Find Power of a Number
+    Source: PepCoding
+    Link: https://www.pepcoding.com/resources/online-java-foundation/introduction-to-recursion/power-linear-official/ojquestion
+    Statement: You are required to calculate x raised to the power n.
+*/
 public class PowerByRecursion {
     public static void main(String[] args) throws Exception {
         // write your code here

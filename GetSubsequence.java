@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/*
+    Name: Get Subsequence (Using Recursion)
+    Source: PepCoding
+    Link: https://www.pepcoding.com/resources/online-java-foundation/recursion-with-arraylists/get-subsequence-official/ojquestion
+    Statement:  Get all subsequence of a string
+*/
 public class GetSubsequence {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);

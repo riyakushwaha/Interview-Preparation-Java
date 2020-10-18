@@ -1,5 +1,13 @@
 import java.util.Scanner;
-// 7-64-24- ans- 121
+
+/*
+    Name: Any Base Addition
+    Source: PepCoding
+    Link: https://www.pepcoding.com/resources/online-java-foundation/function-and-arrays/any-base-addition-official/ojquestion
+
+    Statement: You are required to add the two numbes and print their value in base b.
+*/
+
 public class AnyBaseAddition {
 
     public static void main(String[] args) {
@@ -9,6 +17,7 @@ public class AnyBaseAddition {
         int n2 = scn.nextInt();
         int d = getSum(b, n1, n2);
         System.out.println("result: "+d);
+
     }
 
     public static int getSum(int b, int n1, int n2){

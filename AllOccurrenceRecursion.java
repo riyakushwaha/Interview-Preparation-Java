@@ -1,6 +1,14 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/*
+    Name: All Indices of Array
+    Source: PepCoding
+    Link: https://www.pepcoding.com/resources/online-java-foundation/recursion-in-arrays/all-indices-official/ojquestion
+
+    Statement: Return an array of appropriate size which contains all indices at which x occurs in array a.
+*/
+
 public class AllOccurrenceRecursion {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

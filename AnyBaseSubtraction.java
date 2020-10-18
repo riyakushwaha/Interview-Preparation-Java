@@ -1,6 +1,12 @@
-//Subtract n1 from n2. Both numbers have base b.
-
 import java.util.Scanner;
+
+/*
+    Name: Any Base Subtraction
+    Source: PepCoding
+    Link: https://www.pepcoding.com/resources/online-java-foundation/function-and-arrays/any-base-subtraction-official/ojquestion
+
+    Statement: You are required to subtract n1 and n2 of base b and print the value
+*/
 
 public class AnyBaseSubtraction {
 

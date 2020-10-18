@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+  //  Name: Diamond pattern filled with numbers
+
 public class Diamond {
 
     public static  void main(String []args){

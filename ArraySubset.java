@@ -1,8 +1,14 @@
-import com.sun.jdi.ByteValue;
-
 import java.util.Scanner;
 
-import static java.lang.Integer.toBinaryString;
+/*
+    Name: Subsets Of Array
+    Source: PepCoding
+    Link: https://www.pepcoding.com/resources/online-java-foundation/function-and-arrays/subsets-of-array-official/ojquestion
+
+    Statement: You are required to print all subsets of arr. Each subset should be
+    on separate line. For more clarity check out sample input and output.
+*/
+
 
 public class ArraySubset {
     public static void main(String[] args) {
@@ -43,25 +49,3 @@ public class ArraySubset {
     }
 }
 
-
-//       for( int i =0; i<num; i++)
-//        {
-//        index =i;
-//        for(int j =n-1; j>=0; j--)
-//        {
-//        if(index%2==0)
-//        {
-//        // str = "-\t"+str;
-//        System.out.print("-\t");
-//        }
-//        else
-//        {
-//        //str= a[j]+str;
-//        System.out.print(a[j]+"\t");
-//        }
-//        index = index/2;
-//
-//        }
-//        System.out.println();
-//
-//        }

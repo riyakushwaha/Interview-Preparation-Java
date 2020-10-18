@@ -1,6 +1,11 @@
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+/*
+    Name: Fraudulent Activity Notifications
+    Source: HackerRank
+    Link: https://www.hackerrank.com/challenges/fraudulent-activity-notifications/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=sorting
+*/
 
 public class FraudNotification {
 
@@ -108,8 +113,6 @@ public class FraudNotification {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
-      //  BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
-       // FileReader fr = new FileReader("input.txt");
         BufferedReader bufferedReader = new BufferedReader(new FileReader("input.txt"));
 
         String[] nd = scanner.nextLine().split(" ");
@@ -122,7 +125,6 @@ public class FraudNotification {
 
 
         String[] expenditureItems = bufferedReader.readLine().split(" ");
-      //  String[] expenditureItems = scanner.nextLine().split(" ");
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
         for (int i = 0; i < n; i++) {
@@ -132,12 +134,6 @@ public class FraudNotification {
 
         int result = activityNotifications(expenditure, d);
         System.out.println("Result: "+result);
-
-//        bufferedWriter.write(String.valueOf(result));
-//        bufferedWriter.newLine();
-//
-//        bufferedWriter.close();
-
         scanner.close();
     }
 }

@@ -5,6 +5,13 @@ import java.text.*;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
+/*
+    Name: Find Merge Point of Two Linked Lists
+    Source: HackerRank
+    Link: https://www.hackerrank.com/challenges/find-the-merge-point-of-two-joined-linked-lists/problem
+    Statement: Given pointers to the head nodes of 2 linked lists that merge together at some point,
+    find the node where the two lists merge.
+*/
 
 public class MergePoint {
 
@@ -73,6 +80,7 @@ public class MergePoint {
         {
             ht.put(temp1.toString(), ht.getOrDefault(temp1.toString(), 0)+1);
             temp1 = temp1.next;
+
         }
         while(temp2!=null) {
 

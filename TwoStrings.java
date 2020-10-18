@@ -5,6 +5,13 @@ import java.text.*;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
+/*
+    Name: Two Strings
+    Source: HackerRank
+    Link: https://www.hackerrank.com/challenges/two-strings/problem
+    Statement: Complete the function twoStrings in the editor below. It should return a string, either YES or NO based
+    on whether the strings share a common substring.
+*/
 
 public class TwoStrings {
 
@@ -36,9 +43,7 @@ public class TwoStrings {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
-       // BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
-
-        int q = scanner.nextInt();
+         int q = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
         for (int qItr = 0; qItr < q; qItr++) {
@@ -49,11 +54,7 @@ public class TwoStrings {
             String result = twoStrings(s1, s2);
 
             System.out.println(result);
-          //  bufferedWriter.newLine();
         }
-
-       // bufferedWriter.close();
-
         scanner.close();
     }
 }

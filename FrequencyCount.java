@@ -2,7 +2,11 @@ import java.io.*;
 import java.util.*;
 import java.util.stream.*;
 import static java.util.stream.Collectors.toList;
-
+/*
+    Name: Frequency Queries
+    Source: HackerRank
+    Link: https://www.hackerrank.com/challenges/frequency-queries/problem
+*/
 public class FrequencyCount {
 
     // Complete the freqQuery function below.
@@ -56,7 +60,7 @@ public class FrequencyCount {
             ht2.forEach((k,v)->System.out.println("Key: "+k+" value: "+v));
 
         }
-        
+
 
         System.out.println("-----------Answer------------");
         for (int i: ans  ) {
@@ -69,25 +73,9 @@ public class FrequencyCount {
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        //BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
-
-        // int q = Integer.parseInt(bufferedReader.readLine().trim());
         int q = scanner.nextInt();
 
         List<List<Integer>> queries = new ArrayList<>();
-
-//        IntStream.range(0, q).forEach(i -> {
-//            try {
-//                queries.add(
-//                        Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
-//                                .map(Integer::parseInt)
-//                                .collect(toList())
-//                );
-//            } catch (IOException ex) {
-//                throw new RuntimeException(ex);
-//            }
-//        });
-
         for(int i=0; i<q ; i++){
             queries.add(
                     Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
@@ -96,16 +84,5 @@ public class FrequencyCount {
             );
         }
         freqQuery(queries);
-        // List<Integer> ans = freqQuery(queries);
-
-//        bufferedWriter.write(
-//                ans.stream()
-//                        .map(Object::toString)
-//                        .collect(joining("\n"))
-//                        + "\n"
-//        );
-
-        // bufferedReader.close();
-        //bufferedWriter.close();
     }
 }

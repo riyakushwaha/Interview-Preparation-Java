@@ -1,5 +1,13 @@
 import java.util.Scanner;
 
+/*
+    Name: Any Base Multiplication
+    Source: PepCoding
+    Link: https://www.pepcoding.com/resources/online-java-foundation/function-and-arrays/any-base-multiplication-official/ojquestion
+
+    Statement: You are required to multiply n1 and n2 of base b and print the value
+*/
+
 public class AnyBaseMultiplication {
 
     public static void main(String[] args) {
@@ -34,6 +42,7 @@ public class AnyBaseMultiplication {
     {   int digit, carry, res;
         digit = carry = res =0;
         int p =1;
+
         while (n1>0 ||carry>0)
         {
             digit = n1%10;

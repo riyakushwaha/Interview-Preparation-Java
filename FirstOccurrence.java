@@ -1,5 +1,10 @@
 import java.util.Scanner;
-
+/*
+    Name: First Index (Find by Recursion)
+    Source: PepCoding
+    Link: https://www.pepcoding.com/resources/online-java-foundation/recursion-in-arrays/first-index-official/ojquestion
+    Statement:  If x exists in array, print the first index where it is found otherwise print -1.
+*/
 public class FirstOccurrence {
     public static void main(String[] args) throws Exception {
         // write your code here

@@ -5,6 +5,11 @@ import java.text.*;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
+/*
+    Name: Mark and Toys
+    Source: HackerRank
+    Link: https://www.hackerrank.com/challenges/mark-and-toys/problem
+*/
 
 public class MarkAndToys {
 

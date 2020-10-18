@@ -1,5 +1,11 @@
 import java.util.Scanner;
-
+/*
+    Name: Shell Rotate
+    Source: PepCoding
+    Link: https://www.pepcoding.com/resources/online-java-foundation/2d-arrays/shell-rotate-official/ojquestion
+    Statement: You are given a number r, representing number of anti-clockwise rotations (for +ve numbers) of the shell s.
+    You are required to rotate the sth shell of matrix by r rotations and display the matrix using display function.
+*/
 public class ShellRotateMatrix {
     public static void main(String [] args)
     {
@@ -20,61 +26,123 @@ public class ShellRotateMatrix {
         int s = scanner.nextInt();//2
         int r = scanner.nextInt();//3
 
-        int leastRow = s-1;//1
-        int leastCol = s-1;//1
-        int maxRow = n-s;// 5-2 = 3
-        int maxCol = m-s;// 7-2 = 5
+        rotateShell(arr, s, r);
+        display(arr);
+    }
 
-        r = r%((n-leastCol)*(m-leastCol));
-        System.out.println("r is "+r);
-        //Left Column
-        while(r>0) //3
+
+    public static void rotateShell(int [][] arr, int s, int r)
+    {
+        int [] oneD = fillOneDFromShell(arr, s);
+        rotate(oneD, r);
+       fillShellFromOneD(arr, oneD, s);
+    }
+
+    public static int [] fillOneDFromShell(int [][]arr, int s)
+    {
+        int leastRow = s-1;//2
+        int leastCol = s-1;//2
+        int maxRow = arr.length -s;//5-3 = 2
+        int maxCol = arr[0].length -s;// 7-3 =4
+        int n = 2 * (maxRow - leastRow + maxCol - leastCol);
+        int [] num = new int [n];
+        int index =0;
+
+        for(int i =leastRow ; i<=maxRow; i++)
         {
-            //int a = arr[leastRow][leastCol];//22
-            int b = arr[maxRow][leastCol];//
-            int c = arr[maxRow][maxCol];
-            int d = arr[leastRow][maxCol];
+            num[index++] = arr[i][leastCol];
+        }
+        leastCol++;
 
-            for(int i = maxRow; i>leastRow; i--)//3,2
-            {
-                arr[i][leastCol]= arr[i-1][leastCol];
-               // System.out.println("arr["+i+"]["+leastCol+"]= arr["+(i-1)+"]["+leastCol+"]");
-            }
+        for(int i = leastCol; i<=maxCol; i++)
+        {
+            num[index++] = arr[maxRow][i];
+        }
+        maxRow--;
 
-            for(int i = maxCol; i>leastCol; i--)//5,4,3,2
-            {
-                arr[maxRow][i]= arr[maxRow][i-1];
-               // System.out.println("arr["+maxRow+"]["+i+"]= arr["+maxRow+"]["+(i-1)+"]");
-            }
-            arr[maxRow][leastCol+1]= b;
-           // System.out.println("arr["+maxRow+"]["+(leastCol+1)+"]= is:"+b);
-
-
-            for(int i = leastRow; i<maxRow; i++)//1,2
-            {
-                arr[i][maxCol]= arr[i+1][maxCol];
-               // System.out.println("arr["+i+"]["+maxCol+"]= arr["+(i+1)+"]["+maxCol+"]");
-            }
-            arr[maxRow-1][maxCol] =c;
-           // System.out.println("arr["+maxRow+"]["+(maxCol-1)+"]= is:"+c);
-
-            for(int i = leastCol; i<maxCol; i++)//1,2,3,4
-            {
-                arr[leastRow][i]= arr[leastRow][i+1];
-               // System.out.println("arr["+leastRow+"]["+i+"]= arr["+leastRow+"]["+(i+1)+"]");
-            }
-
-            arr[leastRow][maxCol-1]=d;
-           // System.out.println("arr["+leastRow+"]["+(maxCol-1)+"]= is:"+b);
-
-            r--;
+        for(int i = maxRow; i>leastRow; i--)
+        {
+            num[index++] = arr[i][maxCol];
         }
 
-
-        System.out.println("PRINTING ELEMENTS");
-        for(int i =0; i<n; i++)
+        for(int i =maxCol; i>=leastCol; i--)
         {
-            for(int j =0; j<m; j++)
+            num[index++] = arr[leastRow][i];
+        }
+
+        return num;
+
+    }
+
+    public static void fillShellFromOneD(int [][]arr, int [] oned, int s)
+    {
+        int leastRow = s-1;//1
+        int leastCol = s-1;//1
+        int maxRow = arr.length -s;//5-2 = 3
+        int maxCol = arr[0].length -s;// 7-2 =5
+        int index = 0;
+
+        for(int i =leastRow ; i<=maxRow; i++)
+        {
+            arr[i][leastCol] = oned[index++];
+
+        }
+        leastCol++;
+
+        for(int i = leastCol; i<=maxCol; i++)
+        {
+            arr[maxRow][i] = oned[index++];
+        }
+        maxRow--;
+
+        for(int i = maxRow; i>leastRow; i--)
+        {
+            arr[i][maxCol] = oned[index++];
+        }
+
+        for(int i =maxCol; i>=leastCol; i--)
+        {
+            arr[leastRow][i] = oned[index++];
+        }
+
+    }
+
+    public static void reverse(int [] oneDArray, int l, int r)
+    {
+        int temp;
+        while(l<r)
+        {
+           temp = oneDArray[l];
+           oneDArray[l]= oneDArray[r];
+           oneDArray[r] = temp;
+           l++;
+           r--;
+        }
+
+    }
+
+    public static void rotate(int [] oneDArray, int r)// r=3
+    {
+        int n = oneDArray.length;
+        if(r<0)
+        {
+            r = r+n;
+        }
+        r = r%n;
+
+        reverse(oneDArray, n-r, n-1);
+        reverse(oneDArray, 0, n-r-1);
+        reverse(oneDArray, 0, n-1);
+
+    }
+
+
+    public static void display(int [][] arr)
+    {
+        System.out.println("PRINTING ELEMENTS");
+        for(int i =0; i<arr.length; i++)
+        {
+            for(int j =0; j<arr[0].length; j++)
             {
                 System.out.print(arr[i][j]+" ");
             }
@@ -83,3 +151,10 @@ public class ShellRotateMatrix {
 
     }
 }
+
+
+//        System.out.println("Rotated array");
+//        for(int i =0; i<oneD.length; i++)
+//        {
+//            System.out.print(oneD[i]+" ");
+//        }

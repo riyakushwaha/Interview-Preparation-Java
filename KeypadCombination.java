@@ -1,7 +1,12 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
-
+/*
+    Name: Get KeyPad Combination (Using Recursion)
+    Source: PepCoding
+    Link: https://www.pepcoding.com/resources/online-java-foundation/recursion-with-arraylists/get-kpc-official/ojquestion
+    Statement: WAP to get the list of all words that could be produced by the keys in str.
+*/
 public class KeypadCombination {
     public static void main(String[] args) throws Exception {
 

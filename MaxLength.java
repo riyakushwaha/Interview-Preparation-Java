@@ -1,6 +1,10 @@
 import java.util.*;
 import java.io.*;
-
+/*
+    Name: Longest Increasing Subarray
+    Source: GeeksForGeeks
+    Link: https://practice.geeksforgeeks.org/problems/longest-increasing-subarray/0
+*/
 public class MaxLength {
     public static void main(String args[]) throws IOException
     {   //write your code here

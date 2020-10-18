@@ -8,6 +8,16 @@ import java.util.Arrays;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
+/*
+    Name: Sherlock And Anagrams
+    Source: HackerRank
+    Link: https://www.hackerrank.com/challenges/sherlock-and-anagrams/problem
+    Statement: Two strings are anagrams of each other if the letters of one string
+    can be rearranged to form the other string. Given a string, find the number of
+    pairs of substrings of the string that are anagrams of each other.
+
+*/
+
 public class Anagrams {
     // Complete the sherlockAndAnagrams function below.
     static int sherlockAndAnagrams(String s) {
@@ -58,80 +68,10 @@ public class Anagrams {
         String s = scanner.nextLine();
         scanner.close();
         int result = sherlockAndAnagrams(s);
-
+        System.out.println(result);
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        System.out.println("Length of string "+l1);
-//                for(int i=0; i<l1-1; i++){
-//        for(int j = i+1; j<l1; j++){
-//
-//        System.out.println("Value of i "+i);
-//        System.out.println("Value of j "+j);
-//
-//        if(str[i]==str[j]) {
-//        System.out.println("Strings are equal");
-//        //Check for palindrome
-//        if (j - i == 1) {
-//        ctr += 1;
-//        System.out.println("Value of ctr " + ctr);
-//        } else{
-//        String checkstring = (s.substring(i, j + 1));
-//
-//        checkstr = checkstring.toCharArray();
-//
-//        //Checking for palindrome
-//        int l2 = checkstr.length;
-//        for (int u = 0, v = l2 - 1; u < l2 / 2 && v >= l2 / 2; u++, v--) {
-//        System.out.println("Value of u " + u);
-//        System.out.println("Value of v " + v);
-//
-//        if (checkstr[u] != checkstr[v]) {
-//        System.out.println("Value at u " + checkstr[u]);
-//        System.out.println("Value at v " + checkstr[v]);
-//        flag = false;
-//        }
-//
-//        }
-//        //Palindrome checking ends
-//
-//        System.out.println("Value of flag " + flag);
-//        if (flag) {
-//        ctr += l2 - 1;
-//        System.out.println("Value of ctr " + ctr);
-//        } else {
-//        ctr += 2;
-//        System.out.println("Value of ctr " + ctr);
-//        }
-//        }
-//        }
-//        }
-//        }
-//
-//        //Match for substring
-//        System.out.println(ctr);
-//
-//
 
 
 

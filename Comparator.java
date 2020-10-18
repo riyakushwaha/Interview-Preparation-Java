@@ -1,5 +1,13 @@
 import java.util.*;
 
+/*
+    Name: Sorting: Comparator
+    Source: HackerRank
+    Link: https://www.hackerrank.com/challenges/ctci-comparator-sorting/problem
+
+    Statement:  Given an array of  Player objects, write a comparator that sorts them in order of decreasing score.
+    If n or more players have the same score, sort those players alphabetically ascending by name.
+*/
 
 class Player {
     String name;

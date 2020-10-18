@@ -2,6 +2,17 @@ import java.util.*;
         import java.io.*;
 import java.util.ArrayList;
 
+/*
+    Name: Shrink The Array
+    Source: PrepBytes
+    Link: https://mycode.prepbytes.com/contest/MARATHONSEP20/problems/ARRSRN
+
+    Statement: You are given an array of positive integers A[]of length L. If Ai and Ai+1 both are equal
+     replace them by one element with value. Find out the minimum possible length of the array after performing
+     such operation any number of times.
+
+   ---------------------------- Incomplete. Need to try again-----------------------
+*/
 
 public class ArrayShrink {
     public static void main(String args[]) throws IOException {
@@ -10,7 +21,6 @@ public class ArrayShrink {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
 
-       // scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
         scanner.nextLine();
         String a[] = scanner.nextLine().split(" ");
 

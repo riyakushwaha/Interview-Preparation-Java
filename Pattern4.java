@@ -1,5 +1,13 @@
 import java.util.Scanner;
-
+/*
+    Name: Pattern for n =4
+    1     1
+    12   21
+    123 321
+    1234321
+    Source: PepCoding
+    Link: https://www.pepcoding.com/resources/online-java-foundation/patterns/design-pattern-16-official/ojquestion
+*/
 public class Pattern4 {
     public static void main(String[] args)
     {
