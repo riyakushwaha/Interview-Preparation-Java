@@ -4,38 +4,66 @@
 
 ### HackerRank
 1. Anagrams
-2. Comparator
-3. Bitwise AND
-4. FraudNotification
-5. FrequencyCount
-6. MarkAndToys
-7. RansomNote
-8. Regex.java
-9. Newyear
-10. MergePoint
+2. ArrayManipulation
+3. BinarySeachTree: Height & OrderLevelTraversal
+4. Bitwise AND
+5. Comparator
+6. FraudNotification
+7. FrequencyCount
+8. HourGlassSum
+9. MarkAndToys
+10. MergePoint: LinkedList
+11. MinSwap
+12. NewYear
+13. RansomNote
+14. Regex
+15. TwoStrings
 
 ### PepCoding Java Foundation
 1. AllOcurrenceRecusrion
 2. AnyBaseAddition
 3. AnyBaseMultiplication
-4. ArraySubset
-5. BaseToBaseConversion
-6. BenjaminBulbs
-7. PowerbyRecursion
-8. Primefactors
-9. PivotArray
-10. Pattern1: Upside Butterfly
-11. Pattern2: CodeVita2019 Ques
-12. Pattern3: Square - diamond shape
-13. Pattern4: Number Valley
-14. Pattern5: Arrow
-15. MatrixMultiplication
-16. MatrixSpiralTraversal
-17. MatrixWaveTraversal
-18. TowerOfHanoi
-19. LastOccurrenceRecursion
-20. FirstOccurrence
+4. AnyBaseSubtraction
+5. Array Inverse
+6. ArraySubset
+7. BaseToBaseConversion
+8. BenjaminBulbs
+9. CeilAndFloor
+10. FirstOccurrence
+11. GetSubsequence
+12. KeypadCombination
+13. LastOccurrenceRecursion
+14. MatrixMultiplication
+15. MatrixSpiralTraversal
+16. MatrixWaveTraversal
+17. Pattern1
+18. Pattern2: CodeVita Question
+19. Pattern3: Square - Diamond
+20. Pattern4: Number Valley
+21. Pattern5: Arrow
+22. PowerByRecusrion
+23. PrimeFactors
+24. ShellRotateMatrix
+
+### PrepBytes
+1. ArrayShrink
+
+### GeeksforGeeks
+1. MaxLength: LongestIncreasingSubArray
 
 ### Leetcode 
-1. TwoSum
+1. PivotArray: PivotIndexInArray
+2. TwoSum
 
+### Basics
+1. BinarySearch
+2. BubbleSort
+3. ButterflyPattern
+4. CountingSort
+5. Diamond: Pattern
+6. InsertionSort
+7. MergeSort
+8. PascalTriangle
+9. QuickSort
+10. TowerOfHanoi
+11. SelectionSort
