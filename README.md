@@ -54,6 +54,8 @@
 ### Leetcode 
 1. PivotArray: PivotIndexInArray
 2. TwoSum
+3. MissingNumber
+4. MonotonicArray
 
 ### Basics
 1. BinarySearch
