@@ -44,12 +44,15 @@
 22. PowerByRecusrion
 23. PrimeFactors
 24. ShellRotateMatrix
+25. ASCIIDiff
+26. WPattern
 
 ### PrepBytes
 1. ArrayShrink
 
 ### GeeksforGeeks
 1. MaxLength: LongestIncreasingSubArray
+2. ArrayLeader
 
 ### Leetcode 
 1. PivotArray: PivotIndexInArray
@@ -66,6 +69,9 @@
 6. InsertionSort
 7. MergeSort
 8. PascalTriangle
-9. QuickSort
-10. TowerOfHanoi
-11. SelectionSort
+9. QuickSelectAlgo
+10. QuickSort
+11. RadixSort
+12. SelectionSort
+13. TowerOfHanoi
+

@@ -1,82 +1,77 @@
 import java.util.Scanner;
 
 public class MergeSort {
-// len =7, lb =0, mid = 3, ub=6
-    public static void merge(int lb,int mid , int ub, int []arr){
-        int n1 = mid - lb + 1;
-        int n2 = ub - mid;
 
-        /* Create temp arrays */
-        int L[] = new int[n1];
-        int R[] = new int[n2];
-
-        /*Copy data to temp arrays*/
-        for (int i = 0; i < n1; ++i)
-            L[i] = arr[lb + i];
-        for (int j = 0; j < n2; ++j)
-            R[j] = arr[mid + 1 + j];
-
-        /* Merge the temp arrays */
-
-        // Initial indexes of first and second subarrays
-        int i = 0, j = 0;
-
-        // Initial index of merged subarry array
-        int k = lb;
-        while (i < n1 && j < n2) {
-            if (L[i] <= R[j]) {
-                arr[k] = L[i];
-                i++;
-            }
-            else {
-                arr[k] = R[j];
-                j++;
-            }
-            k++;
-        }
-
-        /* Copy remaining elements of L[] if any */
-        while (i < n1) {
-            arr[k] = L[i];
-            i++;
-            k++;
-        }
-
-        /* Copy remaining elements of R[] if any */
-        while (j < n2) {
-            arr[k] = R[j];
-            j++;
-            k++;
-        }
-
-    }
-
-    private static  void mergesort(int lb, int ub, int []arr){
-        if(lb<ub){
-            int mid = (lb+ub)/2;
-            mergesort(lb, mid, arr);
-            mergesort( mid+1,ub, arr);
-            merge(lb, mid, ub, arr);
-
-        }
-    }
-
-    private static final Scanner scanner = new Scanner(System.in);
-    public static void main(String [] args)
+public static int[] mergeSort(int[] arr, int lo, int hi) {
+    //write your code here
+    if(lo==hi)
     {
+        int [] a = new int[1];
+        a[0] = arr[lo];
+        return a;
+    }
 
-        int n = scanner.nextInt();
-        int [] a = new int[n];
+    int mid = (lo + hi)/2;
+    int [] a = mergeSort(arr, lo, mid);
+    int [] b =mergeSort(arr, mid + 1, hi);
+    int [] join = mergeTwoSortedArrays(a, b);
+    return join;
 
-        for(int i =0; i<n; i++){
-            a[i] = scanner.nextInt();
+
+}
+
+    //used for merging two sorted arrays
+    public static int[] mergeTwoSortedArrays(int[] a, int[] b){
+        System.out.println("Merging these two arrays ");
+        System.out.print("left array -> ");
+        print(a);
+        System.out.print("right array -> ");
+        print(b);
+        int i = 0, j =0, k = 0;
+        int[] ans = new int[a.length + b.length];
+        while(i < a.length && j < b.length){
+            if(a[i] <= b[j]){
+                ans[k] = a[i];
+                i++;
+                k++;
+            }else{
+                ans[k] = b[j];
+                j++;
+                k++;
+            }
         }
 
-        mergesort(0, n-1, a);
-        System.out.print("\nResult: ");
-        for( int i =0; i<n; i++){
-            System.out.print(a[i]+" ");
+        while(i < a.length){
+            ans[k] = a[i];
+            k++;
+            i++;
         }
 
+        while(j < b.length){
+            ans[k] = b[j];
+            k++;
+            j++;
+        }
+
+        return ans;
+    }
+
+    public static void print(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) throws Exception {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = scn.nextInt();
+        }
+        int[] sa = mergeSort(arr,0,arr.length - 1);
+        System.out.print("Sorted Array -> ");
+        print(sa);
     }
 }

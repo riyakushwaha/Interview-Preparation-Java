@@ -2,60 +2,59 @@ import java.util.Scanner;
 
 public class QuickSort {
 
-    public static int partition(int lb, int ub, int []arr){
+    public static void quickSort(int[] arr, int lo, int hi) {
+        //write your code here
+        if(lo>hi)
+        {
+            return;
+        }
 
-            int start = lb;
-            int end = ub;
-            int pivot = arr[end];
-        int j=-1;
-            System.out.println("\nstart: "+start);
-            System.out.println("end: "+end);
-            System.out.println("pivot: "+pivot);
+        int pivot = arr[hi];
+        int pos = partition(arr, pivot, lo, hi);
+        quickSort(arr, lo, pos-1);
+        quickSort(arr, pos+1, hi);
 
-            for(int i=0; i<=end; i++)
-            {
+    }
 
-               if(arr[i]<=pivot)
-               {
-                   j++;
-                   int temp = arr[j];
-                   arr[j]= arr[i];
-                   arr[i]=temp;
-
-               }
+    public static int partition(int[] arr, int pivot, int lo, int hi) {
+        System.out.println("pivot -> " + pivot);
+        int i = lo, j = lo;
+        while (i <= hi) {
+            if (arr[i] <= pivot) {
+                swap(arr, i, j);
+                i++;
+                j++;
+            } else {
+                i++;
             }
-
-        for( int i =0; i<=end; i++){
-           // System.out.print(arr[i]+" ");
         }
-            return j;
-
+        System.out.println("pivot index -> " + (j - 1));
+        return (j - 1);
     }
 
-    private static  void quicksort(int lb, int ub, int []arr){
-        if(lb<ub){
-            int a = partition(lb, ub, arr);
-            quicksort(lb, a-1, arr);
-            quicksort(a+1, ub, arr);
-        }
+    // used for swapping ith and jth elements of array
+    public static void swap(int[] arr, int i, int j) {
+        System.out.println("Swapping " + arr[i] + " and " + arr[j]);
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 
-    private static final Scanner scanner = new Scanner(System.in);
-    public static void main(String [] args)
-    {
-
-        int n = scanner.nextInt();
-        int [] a = new int[n];
-
-        for(int i =0; i<n; i++){
-            a[i] = scanner.nextInt();
+    public static void print(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
+        System.out.println();
+    }
 
-        quicksort(0, n-1, a);
-        System.out.print("\nResult: ");
-        for( int i =0; i<n; i++){
-            System.out.print(a[i]+" ");
+    public static void main(String[] args) throws Exception {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = scn.nextInt();
         }
-
+        quickSort(arr, 0, arr.length - 1);
+        print(arr);
     }
 }
