@@ -38,12 +38,12 @@ public class ShellRotateMatrix {
        fillShellFromOneD(arr, oneD, s);
     }
 
-    public static int [] fillOneDFromShell(int [][]arr, int s)
+    public static int [] fillOneDFromShell(int [][]arr, int s)// s is 2
     {
-        int leastRow = s-1;//2
-        int leastCol = s-1;//2
-        int maxRow = arr.length -s;//5-3 = 2
-        int maxCol = arr[0].length -s;// 7-3 =4
+        int leastRow = s-1;//1
+        int leastCol = s-1;//1
+        int maxRow = arr.length -s;//3
+        int maxCol = arr[0].length -s;//4
         int n = 2 * (maxRow - leastRow + maxCol - leastCol);
         int [] num = new int [n];
         int index =0;
@@ -52,20 +52,18 @@ public class ShellRotateMatrix {
         {
             num[index++] = arr[i][leastCol];
         }
-        leastCol++;
 
-        for(int i = leastCol; i<=maxCol; i++)
+        for(int i = leastCol+1; i<=maxCol; i++)
         {
             num[index++] = arr[maxRow][i];
         }
-        maxRow--;
 
-        for(int i = maxRow; i>leastRow; i--)
+        for(int i = maxRow-1; i>=leastRow; i--)
         {
             num[index++] = arr[i][maxCol];
         }
 
-        for(int i =maxCol; i>=leastCol; i--)
+        for(int i =maxCol-1; i>=leastCol+1; i--)
         {
             num[index++] = arr[leastRow][i];
         }
@@ -87,20 +85,18 @@ public class ShellRotateMatrix {
             arr[i][leastCol] = oned[index++];
 
         }
-        leastCol++;
 
-        for(int i = leastCol; i<=maxCol; i++)
+        for(int i = leastCol+1; i<=maxCol; i++)
         {
             arr[maxRow][i] = oned[index++];
         }
-        maxRow--;
 
-        for(int i = maxRow; i>leastRow; i--)
+        for(int i = maxRow-1; i>=leastRow; i--)
         {
             arr[i][maxCol] = oned[index++];
         }
 
-        for(int i =maxCol; i>=leastCol; i--)
+        for(int i =maxCol-1; i>=leastCol+1; i--)
         {
             arr[leastRow][i] = oned[index++];
         }
@@ -124,12 +120,11 @@ public class ShellRotateMatrix {
     public static void rotate(int [] oneDArray, int r)// r=3
     {
         int n = oneDArray.length;
+        r = r%n;
         if(r<0)
         {
             r = r+n;
         }
-        r = r%n;
-
         reverse(oneDArray, n-r, n-1);
         reverse(oneDArray, 0, n-r-1);
         reverse(oneDArray, 0, n-1);
@@ -151,10 +146,3 @@ public class ShellRotateMatrix {
 
     }
 }
-
-
-//        System.out.println("Rotated array");
-//        for(int i =0; i<oneD.length; i++)
-//        {
-//            System.out.print(oneD[i]+" ");
-//        }

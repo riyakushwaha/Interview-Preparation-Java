@@ -1,5 +1,6 @@
 /*
     Name: Custom Linked Link
+    Source: PepCoding
     List of existing functions:
     1. addLast - adds a new element with given value to the end of Linked List
     2. display - Prints the elements of linked list from front to end in a single line.
@@ -15,6 +16,13 @@
     12. getNodeAt - Returns the node available at the index passed.
     13. reverseDI - reverse the contents of linked list by changing the "data" property of nodes.
     14. reversePI - reverse the contents of linked list by changing the "next" property of nodes.
+    15. kthFromLast - return value of kth node from end.
+    16. mid - return middle value of the list.
+    17. mergeTwoSortedLists - merges two sorted Linked lists.
+    18. midNode - return middle node of the list.
+    19. mergeSort - applies mergesort algorithm to sort the linked list.
+    20. removeDuplicates - removes duplicate data nodes from sorted linked list.
+    21. oddEven - Tweak the list such that all odd values are followed by all even values and maintaining the relative order of elements.
  */
 
 import java.io.BufferedReader;
@@ -212,6 +220,143 @@ public class CustomLinkedList {
             tail = head;
             head = prev;
         }
+
+        public int kthFromLast(int k) {
+            Node slow = head;
+            Node fast = head;
+            for (int i = 0; i < k; i++) {
+                fast = fast.next;
+            }
+
+            while (fast != tail) {
+                slow = slow.next;
+                fast = fast.next;
+            }
+
+            return slow.data;
+        }
+
+        public int mid() {
+            Node f = head;
+            Node s = head;
+
+            while (f.next != null && f.next.next != null) {
+                f = f.next.next;
+                s = s.next;
+            }
+
+            return s.data;
+        }
+
+        public static LinkedList mergeTwoSortedLists(LinkedList l1, LinkedList l2) {
+            LinkedList ml = new LinkedList();
+
+            Node one = l1.head;
+            Node two = l2.head;
+            while (one != null && two != null) {
+                if (one.data < two.data) {
+                    ml.addLast(one.data);
+                    one = one.next;
+                } else {
+                    ml.addLast(two.data);
+                    two = two.next;
+                }
+            }
+
+            while (one != null) {
+                ml.addLast(one.data);
+                one = one.next;
+            }
+
+            while (two != null) {
+                ml.addLast(two.data);
+                two = two.next;
+            }
+
+            return ml;
+        }
+
+        public static Node midNode(Node head, Node tail){
+            Node f = head;
+            Node s = head;
+
+            while(f != tail && f.next != tail){
+                f = f.next.next;
+                s = s.next;
+            }
+
+            return s;
+        }
+
+        public static LinkedList mergeSort(Node head, Node tail){
+            if(head == tail){
+                LinkedList br = new LinkedList();
+                br.addLast(head.data);
+                return br;
+            }
+
+            Node mid = midNode(head, tail);
+            LinkedList fsh = mergeSort(head, mid);
+            LinkedList ssh = mergeSort(mid.next, tail);
+            LinkedList sl = mergeTwoSortedLists(fsh, ssh);
+            return sl;
+        }
+
+        public void removeDuplicates(){
+            LinkedList res = new LinkedList();
+
+            while(this.size() > 0){
+                int val = this.getFirst();
+                this.removeFirst();
+
+                if(res.size() == 0 || val != res.tail.data){
+                    res.addLast(val);
+                }
+            }
+
+            this.head = res.head;
+            this.tail = res.tail;
+            this.size = res.size;
+        }
+
+        public void oddEven(){
+
+            LinkedList odd = new LinkedList();
+            LinkedList even = new LinkedList();
+            while (this.size()>0)
+            {
+                int val = this.getFirst();
+                this.removeFirst();;
+
+                if(val%2 == 0)
+                {
+                    even.addLast(val);
+                }else{
+                    odd.addLast(val);
+                }
+            }
+
+            if(odd.size()>0 && even.size()>0)
+            {
+                odd.tail.next = even.head;
+                this.head = odd.head;
+                this.tail = even.tail;
+                this.size = even.size + odd.size;
+            }
+            else if(odd.size()>0)
+            {
+                this.head = odd.head;
+                this.tail = odd.tail;
+                this.size = odd.size;
+            }
+            else
+            {
+                this.head = even.head;
+                this.tail = even.tail;
+                this.size = even.size;
+            }
+        }
+
     }
 
     public static void main(String[] args) throws Exception {
@@ -264,5 +409,7 @@ public class CustomLinkedList {
             }
             str = br.readLine();
         }
+
+
     }
 }
