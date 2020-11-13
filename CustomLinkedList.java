@@ -1,5 +1,5 @@
 /*
-    Name: Custom Linked Link
+    Name: Custom Linked List
     Source: PepCoding
     List of existing functions:
     1. addLast - adds a new element with given value to the end of Linked List
@@ -23,6 +23,17 @@
     19. mergeSort - applies mergesort algorithm to sort the linked list.
     20. removeDuplicates - removes duplicate data nodes from sorted linked list.
     21. oddEven - Tweak the list such that all odd values are followed by all even values and maintaining the relative order of elements.
+    22. kReverse - The function is expected to tweak the list such that all groups of k elements in the list get reversed and linked. If the
+        last set has less than k elements, leave it as it is.
+    23. displayReverse and displayReverseHelper - display content of list in reverse order recursively.
+    24. reversePR and reversePRHelper - Reverse list using pointers by recursion.
+    25. reverseDR and reverseDRHelper - Reverse list using data property by recursion.
+    26. IsPalindrome and PalindromeHelper -  Check if the linked list is a palindrome or not and return boolean value.
+    27. fold and foldHelper - The function is expected to place last element after 1st element, 2nd last element after 2nd element and so on.
+    28. addTwoLists and Addition -  The function is passed two linked lists which represent two numbers - the first element is the most significant digit
+    and the last element is the least significant digit. The function is expected to add the two linked list and return a new linked list.
+    29. findIntersection - The function is passed two linked lists which start separately but merge at a node and become common thereafter. The function is expected
+    to find the point where two linked lists merge.
  */
 
 import java.io.BufferedReader;
@@ -209,7 +220,7 @@ public class CustomLinkedList {
         public void reversePI(){
             Node prev = null;
             Node curr = head;
-            Node later = curr;
+            Node later;
             while(curr!=null)
             {
                 later = curr.next;
@@ -355,6 +366,231 @@ public class CustomLinkedList {
                 this.tail = even.tail;
                 this.size = even.size;
             }
+        }
+
+        public void kReverse(int k) {
+            LinkedList prev = new LinkedList();
+            while(this.size >0)
+            {
+                LinkedList curr = new LinkedList();
+                if(this.size >= k)
+                {
+                    for(int i=0; i<k; i++)
+                    {
+                        int val = this.getFirst();
+                        this.removeFirst();
+                        curr.addFirst(val);
+                    }
+                }
+                else
+                {
+                    int s = this.size;
+                    for(int i=0; i<s; i++)
+                    {
+                        int val = this.getFirst();
+                        this.removeFirst();
+                        curr.addLast(val);
+                    }
+
+                }
+
+                if(prev.head == null)
+                {
+                    prev.head = curr.head;
+                    prev.tail = curr.tail;
+                    prev.size = curr.size;
+                }
+                else
+                {
+                    prev.tail.next = curr.head;
+                    prev.tail = curr.tail;
+                    prev.size+= curr.size;
+                }
+            }
+
+            this.head = prev.head;
+            this.tail = prev.tail;
+            this.size = prev.size;
+        }
+
+        private void displayReverseHelper(Node node){
+            if(node == null)
+            {
+                return;
+            }
+            else
+            {
+                displayReverseHelper(node.next);
+                System.out.print(node.data+" ");
+            }
+        }
+
+        public void displayReverse(){
+            displayReverseHelper(head);
+            System.out.println();
+        }
+
+        private void reversePRHelper(Node node){
+            if(node == tail)
+            {
+                return;
+            }
+            reversePRHelper(node.next);
+            node.next.next = node;
+        }
+
+        public void reversePR(){
+            reversePRHelper(head);
+            head.next = null;
+            Node temp = head;
+            head = tail;
+            tail = temp;
+        }
+
+        private void reverseDRHelper(Node node, int floor){
+            if(node == tail)
+            {
+                return;
+            }
+            reverseDRHelper(node.next, floor+1);
+            if(floor>=size/2)
+            {
+                int temp = left.data;
+                left.data = node.data;
+                node.data = temp;
+                left = left.next;
+            }
+        }
+
+        Node left;
+        public void reverseDR(){
+            left = head;
+            reverseDRHelper(head, 0);
+        }
+
+        private boolean PalindromeHelper(Node node, int floor)
+        {
+            if(node ==null)
+            {
+                return true;
+            }
+
+            boolean res = PalindromeHelper(node.next, floor+1);
+            if(floor>=size/2)
+            {
+                if(res && left.data == node.data)
+                {
+                    left = left.next;
+                    return res;
+                }
+                else
+                {
+                    return false;
+                }
+
+
+            }
+            return res;
+        }
+
+        public boolean IsPalindrome() {
+            left = head;
+            return PalindromeHelper(head, 0);
+        }
+
+        private void foldHelper(Node right, int floor)
+        {
+            if(right ==null){
+                return;
+            }
+            foldHelper(right.next, floor+1);
+
+            if(floor>=size/2 && left!=right)
+            {
+                Node temp = left;
+                left = left.next;
+                temp.next = right;
+                right.next = left;
+            }
+        }
+
+        public void fold() {
+            left = head;
+            foldHelper(head, 0);
+            left.next = null;
+            tail = left;
+
+        }
+
+        private static int addition(Node node1, int pv1, Node node2, int pv2, LinkedList res)
+        {
+            if(node1 ==null && node2==null)
+            {
+                return 0;
+            }
+
+            int data =0;
+            if(pv1> pv2)
+            {
+                int c =addition(node1.next, pv1-1, node2, pv2, res);
+                data = node1.data + c;
+            }
+            else if(pv1 < pv2)
+            {
+                int c = addition(node1, pv1, node2.next, pv2-1, res);
+                data = node2.data + c;
+            }
+            else
+            {
+                int c =addition(node1.next, pv1-1, node2.next, pv2-1, res);
+                data = node1.data + node2.data + c;
+            }
+
+            int rem = data % 10;
+            int carry = data/10;
+            res.addFirst(rem);
+            return carry;
+        }
+
+        public static LinkedList addTwoLists(LinkedList one, LinkedList two) {
+            LinkedList res = new LinkedList();
+            int carry = addition(one.head, one.size, two.head, two.size, res);
+
+            if(carry>0)
+            {
+                res.addFirst(carry);
+            }
+            return res;
+        }
+
+        public static int findIntersection(LinkedList one, LinkedList two){
+            Node node1 = one.head;
+            Node node2 = two.head;
+
+            int extra = Math.abs(one.size - two.size);
+            if(one.size > two.size)
+            {
+                for(int i=0; i<extra; i++)
+                {
+                    node1 = node1.next;
+                }
+            }
+            else
+            {
+                for(int i=0; i<extra; i++)
+                {
+                    node2 = node2.next;
+                }
+            }
+
+            while(node1 != node2)
+            {
+                node1 = node1.next;
+                node2 = node2.next;
+            }
+
+            return node1.data;
+
         }
 
     }
