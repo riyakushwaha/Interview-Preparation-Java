@@ -14,85 +14,48 @@ public class ExitPointInMatrix {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         int m = scanner.nextInt();
-        int i,j;
-        Boolean rgt, lft, up, down;
-        rgt = true;
-        lft = up = down = false;
-
         int [][] arr = new int [n][m];
 
-        for(i =0; i<n; i++)
+        for(int i =0; i<n; i++)
         {
-            for(j =0; j<m; j++)
+            for(int j =0; j<m; j++)
             {
                 arr[i][j]= scanner.nextInt();
             }
         }
 
-        System.out.println("PRINTING RESULT");
+        int i, j, dir;
+        i = j = dir =0;
+        while(true){
+            dir = (dir + arr[i][j]) % 4;
 
-        i=j=0;
-        while(i<n && j<m)
-        {
-            System.out.println("Checking for index"+i+" and "+j );
-            if(arr[i][j]==1)
-            {
-               if(lft)
-               {
-                   i--;
-                   lft  = false;
-                   up = true;
-               }
-               else if(rgt)
-               {
-                   i++;
-                   rgt = false;
-                   down = true;
-               }
-               else if(up)
-               {
-                    j++;
-                    up = false;
-                    rgt = true;
-
-               }
-               else if(down)
-               {
-                    j--;
-                    down = false;
-                    lft = true;
-               }
+            if(dir == 0){
+                j++;
+            }else if(dir == 1){
+                i++;
+            }else if(dir == 2){
+                j--;
             }
-            else
-            {
-                if(lft)
-                {
-                    j--;
-                }
-                else if(rgt)
-                {
-                    j++;
-                }
-                else if(up)
-                {
-                    i--;
-                }
-                else if(down)
-                {
-                    i++;
-                }
+            else{
+                i--;
+            }
+
+            if(i<0){
+                i++;
+                break;
+            }else if(j<0){
+                j++;
+                break;
+            }else if(i == arr.length){
+                i--;
+                break;
+            }else if(j == arr[0].length){
+                j--;
+                break;
             }
         }
 
-
-        if(i==n)
-        {
-            System.out.println(--i);
-            System.out.println(j);
-        }
-        else{
-            System.out.println(i);
-            System.out.println(--j);
-        }
+        System.out.println(i);
+        System.out.println(j);
     }
 }
