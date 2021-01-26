@@ -26,35 +26,67 @@ public class ClimbStairsMinMoves {
 
     // Tabulation-> dp stores min+1 jumps to reach 10th stair.
     private static int climbStairs(int [] arr) {
-        int [] dp = new int[arr.length+1];
-        dp[arr.length] = 1;
-        int min=0;
-        for(int i= arr.length-1; i>=0 ; i--)
+        int n = arr.length;
+        Integer [] dp = new Integer[n+1];
+        dp[n] = 0;
+
+        for(int i=n-1; i>=0; i--)
         {
-            if(arr[i]!=0)
+            if(arr[i]>0)
             {
-                int val = arr[i] + i;
-                min = dp[i+1];
-                if(val>=dp.length)
+                int min = Integer.MAX_VALUE;
+                for(int j=1; j<=arr[i] && i+j <dp.length; j++)
                 {
-                    val = dp.length-1;
+                    if(dp[i+j]!=null){
+                        min = Math.min(min, dp[i+j]);
+                    }
                 }
 
-                for(int j=i+2; j<dp.length && j<=val; j++)
-                {
-                    if(dp[j]!=0 && min> dp[j])
-                    {
-                        min = dp[j];
-                    }
-                    else if (min==0 && dp[j]>0)
-                    {
-                        min = dp[j];
-                    }
+                if(min != Integer.MAX_VALUE){
+                    dp[i] =  min +1;
                 }
             }
-            dp[i] = min>0? min +1 : 0;
         }
-        return dp[0]-1;
+
+        return dp[0];
+    }
+
+    //Approach2 Time= 0(n)
+    public static int climbStairs2(int [] arr){
+        int n = arr.length;
+        int ladder = arr[0];
+        int stair = arr[0];
+        int jump = 1;
+
+        if(ladder == 0)
+        {
+            return -1;
+        }
+
+        for(int i =1; i<n; i++){
+            if(i == n-1)
+            {
+                return jump;
+            }
+
+            if(i + arr[i] > ladder)
+            {
+                ladder = i + arr[i];
+            }
+            stair--;
+
+            if(stair == 0)
+            {
+                jump++;
+                stair = ladder - i;
+            }
+            if(stair<=0)
+            {
+                return -1;
+            }
+        }
+
+        return jump;
     }
 }
 
