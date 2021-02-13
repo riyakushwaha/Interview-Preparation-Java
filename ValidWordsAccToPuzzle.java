@@ -23,7 +23,7 @@ public class ValidWordsAccToPuzzle {
         }
         ArrayList < Integer > ans = findNumOfValidWords(words, puzzles);
         for (int val: ans) {
-            System.out.println(puzzles[i] + " -> " + ans.get(i));
+            //System.out.println(puzzles[i] + " -> " + ans.get(i));
         }
     }
 
